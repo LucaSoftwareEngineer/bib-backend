@@ -12,5 +12,6 @@ namespace models
         public string Genere { get; set; }
         public DateTime DataPubblicazione { get; set; }
         public string ISBN { get; set; }
+        public ICollection<Noleggio> Noleggi { get; set; } = new List<Noleggio>();
     }
 }

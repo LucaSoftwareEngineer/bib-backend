@@ -13,5 +13,6 @@ namespace models
         public string Password { get; set; }
         public DateTime dataNascita { get; set; }
         public String luogoNascita { get; set; }
+        public ICollection<Noleggio> Noleggi { get; set; } = new List<Noleggio>();
     }
 }
