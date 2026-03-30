@@ -2,13 +2,6 @@
 using models;
 using models.dto;
 using services.interfaces;
-using JWT.Builder;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using JWT.Algorithms;
 
 namespace services
 {
@@ -31,7 +24,7 @@ namespace services
                 Nome = request.Nome,
                 Cognome = request.Cognome,
                 Email = request.Email,
-                Password = request.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
                 dataNascita = request.dataNascita,
                 luogoNascita = request.luogoNascita
             };
@@ -45,14 +38,12 @@ namespace services
 
         public async Task<LoginResponse> LoginUtente(LoginRequest request, string jwtKey)
         {
-            var utente = _appDbContext.Utenti.Where(u => u.Email == request.Email && u.Password == request.Password).FirstOrDefault();
+            var utente = _appDbContext.Utenti.Where(u => u.Email == request.Email).FirstOrDefault();
 
-            if (utente == null)
+            if (utente == null || BCrypt.Net.BCrypt.Verify(request.Password, utente.Password) == false)
             {
                 throw new Exception("Email o password errati");
             }
-
-
 
             return new LoginResponse
             {

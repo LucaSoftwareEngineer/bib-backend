@@ -23,6 +23,7 @@ namespace api.Controllers
         {
             try
             {
+                var jwtKey = _configuration["jwtKey"];
                 var response = await _utenteService.RegisterUtente(request);
                 return Ok(response);
             }
@@ -38,7 +39,6 @@ namespace api.Controllers
             try
             {
                 var jwtKey = _configuration["jwtKey"];
-                Console.WriteLine(jwtKey);
                 var response = await _utenteService.LoginUtente(request, jwtKey);
                 return Ok(response);
             }
