@@ -5,7 +5,7 @@
 # Feature Da fare / In corso / Completate
 | Feature | Stato |
 | :--- | :--- |
-| Utente: Registrazione | ⏳ Da fare |
+| Utente: Registrazione | ✅ Completato |
 | Utente: Login | ⏳ Da fare |
 | Utente: Ricerca di un libro | ⏳ Da fare |
 | Utente: Noleggio di un libro | ✅ Completato |
