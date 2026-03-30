@@ -6,7 +6,7 @@
 | Feature | Stato |
 | :--- | :--- |
 | Utente: Registrazione | ✅ Completato |
-| Utente: Login | ⏳ Da fare |
+| Utente: Login | ✅ Completato |
 | Utente: Ricerca di un libro | ⏳ Da fare |
 | Utente: Noleggio di un libro | ✅ Completato |
 | Amministratore: Login | ⏳ Da fare |
