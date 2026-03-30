@@ -14,8 +14,11 @@ builder.Services.AddOpenApi();
 
 // Connessione al database
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+// Registrazione dei servizi
 builder.Services.AddScoped<NoleggioService>();
 builder.Services.AddScoped<UtenteService>();
+builder.Services.AddScoped<TokenService>();
 
 var app = builder.Build();
 

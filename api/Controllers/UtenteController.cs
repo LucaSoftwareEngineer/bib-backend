@@ -10,10 +10,12 @@ namespace api.Controllers
     public class UtenteController : ControllerBase
     {
         private readonly UtenteService _utenteService;
+        private readonly IConfiguration _configuration;
 
-        public UtenteController(UtenteService utenteService)
+        public UtenteController(UtenteService utenteService, IConfiguration configuration)
         {
             this._utenteService = utenteService;
+            this._configuration = configuration;
         }
 
         [HttpPost("register")]
@@ -30,5 +32,21 @@ namespace api.Controllers
             }
         }
 
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginResponse>> LoginUtente([FromBody] LoginRequest request)
+        {
+            try
+            {
+                var jwtKey = _configuration["jwtKey"];
+                Console.WriteLine(jwtKey);
+                var response = await _utenteService.LoginUtente(request, jwtKey);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
 }
