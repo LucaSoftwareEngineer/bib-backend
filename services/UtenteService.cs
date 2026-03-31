@@ -9,9 +9,9 @@ namespace services
     {
 
         private readonly AppDbContext _appDbContext;
-        private readonly TokenService _tokenService;
+        private readonly ITokenService _tokenService;
 
-        public UtenteService(AppDbContext appDbContext, TokenService tokenService)
+        public UtenteService(AppDbContext appDbContext, ITokenService tokenService)
         {
             this._appDbContext = appDbContext;
             this._tokenService = tokenService;

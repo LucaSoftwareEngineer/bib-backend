@@ -18,7 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 // Registrazione dei servizi
 builder.Services.AddScoped<NoleggioService>();
 builder.Services.AddScoped<UtenteService>();
-builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 

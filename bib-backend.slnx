@@ -3,4 +3,5 @@
   <Project Path="data/data.csproj" Id="961f4636-7455-4687-9a08-bef95fe1fac2" />
   <Project Path="models/models.csproj" Id="128a6416-0e70-4206-974a-faa116d13517" />
   <Project Path="services/services.csproj" Id="f8ca4b74-9d33-4955-8bae-1e5c3e2ae0b3" />
+  <Project Path="tests/tests.csproj" Id="bfc3f95b-ec8c-4b7e-a704-fd62266c7837" />
 </Solution>
