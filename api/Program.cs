@@ -19,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 builder.Services.AddScoped<NoleggioService>();
 builder.Services.AddScoped<UtenteService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ILibroService, LibroService>();
 
 var app = builder.Build();
 
