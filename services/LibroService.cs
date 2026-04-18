@@ -38,6 +38,19 @@ namespace services
             };
         }
 
+        public async Task DeleteLibro(int id)
+        {
+            try
+            {
+                var libro = _appDbContext.Libri.Find(id);
+                _appDbContext.Libri.Remove(libro);
+                await _appDbContext.SaveChangesAsync();
+            }
+            catch (Exception ex) { 
+                throw new Exception("Errore durante la cancellazione del libro: " + ex.Message);
+            }
+        }
+
         public async Task<LibroResponse> EditLibro(EditLibroRequest request)
         {
             var libro = _appDbContext.Libri.Find(request.LibroId);
@@ -97,7 +110,5 @@ namespace services
 
             return Task.FromResult(libro);
         }
-
-
     }
 }

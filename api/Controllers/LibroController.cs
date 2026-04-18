@@ -80,5 +80,19 @@ namespace api.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<ActionResult> DeleteLibro([FromRoute] int id)
+        {
+            try
+            {
+                _libroService.DeleteLibro(id);
+                return Ok("Libro cancellato con successo");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

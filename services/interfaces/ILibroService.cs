@@ -11,5 +11,6 @@ namespace services.interfaces
         public Task<List<LibroResponse>> GetAllLibro();
         public Task<LibroResponse?> GetLibroByTitolo(string titolo);
         public Task<LibroResponse> EditLibro(EditLibroRequest request);
+        public Task DeleteLibro(int id);
     }
 }
