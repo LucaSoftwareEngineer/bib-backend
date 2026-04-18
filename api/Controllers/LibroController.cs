@@ -63,5 +63,22 @@ namespace api.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpPut("edit")]
+        public async Task<ActionResult<LibroResponse>> EditLibro([FromBody] EditLibroRequest request)
+        {
+            try
+            {
+                if (request == null) return BadRequest("Dati non validi");
+
+                var response = await _libroService.EditLibro(request);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

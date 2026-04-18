@@ -10,5 +10,6 @@ namespace services.interfaces
         public Task<AddLibroResponse> AddLibro(AddLibroRequest request);
         public Task<List<LibroResponse>> GetAllLibro();
         public Task<LibroResponse?> GetLibroByTitolo(string titolo);
+        public Task<LibroResponse> EditLibro(EditLibroRequest request);
     }
 }

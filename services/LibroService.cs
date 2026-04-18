@@ -38,6 +38,34 @@ namespace services
             };
         }
 
+        public async Task<LibroResponse> EditLibro(EditLibroRequest request)
+        {
+            var libro = _appDbContext.Libri.Find(request.LibroId);
+
+            if (libro == null)            {
+                throw new Exception("Libro non trovato");
+            }
+
+            libro.Titolo = request.Titolo;
+            libro.Autore = request.Autore;
+            libro.Genere = request.Genere;
+            libro.DataPubblicazione = request.DataPubblicazione;
+            libro.ISBN = request.ISBN;
+            
+            await _appDbContext.SaveChangesAsync();
+
+            return new LibroResponse()
+            {
+                LibroId = libro.LibroId,
+                Titolo = libro.Titolo,
+                Autore = libro.Autore,
+                Genere = libro.Genere,
+                DataPubblicazione = libro.DataPubblicazione,
+                ISBN = libro.ISBN,
+                Disponibile = libro.Noleggi.FirstOrDefault() == null ? true : false
+            };
+        }
+
         public Task<List<LibroResponse>> GetAllLibro()
         {
             var libri = _appDbContext.Libri.Select(l => new LibroResponse
@@ -69,5 +97,7 @@ namespace services
 
             return Task.FromResult(libro);
         }
+
+
     }
 }
