@@ -7,7 +7,7 @@
 | :--- | :--- |
 | Utente: Registrazione | ✅ Completato |
 | Utente: Login | ✅ Completato |
-| Utente: Ricerca di un libro | ⏳ Da fare |
+| Utente: Ricerca di un libro | ✅ Completato |
 | Utente: Noleggio di un libro | ✅ Completato |
 | Amministratore: Login | ⏳ Da fare |
 | Amministratore: Inserimento di un libro | ✅ Completato |
