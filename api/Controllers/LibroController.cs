@@ -48,5 +48,20 @@ namespace api.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("get")]
+        public async Task<ActionResult<LibroResponse>> GetLibroByTitolo([FromQuery] string titolo)
+        {
+            try
+            {
+                var response = await _libroService.GetLibroByTitolo(titolo);
+                if (response == null) return NotFound("Libro non trovato");
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }

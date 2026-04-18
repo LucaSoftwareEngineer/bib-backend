@@ -53,5 +53,21 @@ namespace services
 
             return Task.FromResult(libri);
         }
+
+        public Task<LibroResponse?> GetLibroByTitolo(string titolo)
+        {
+            var libro = _appDbContext.Libri.Where(l => l.Titolo == titolo).Select(l => new LibroResponse
+            {
+                LibroId = l.LibroId,
+                Titolo = l.Titolo,
+                Autore = l.Autore,
+                Genere = l.Genere,
+                DataPubblicazione = l.DataPubblicazione,
+                ISBN = l.ISBN,
+                Disponibile = l.Noleggi.FirstOrDefault() == null ? true : false
+            }).FirstOrDefault();
+
+            return Task.FromResult(libro);
+        }
     }
 }
