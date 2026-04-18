@@ -10,7 +10,7 @@
 | Utente: Ricerca di un libro | ⏳ Da fare |
 | Utente: Noleggio di un libro | ✅ Completato |
 | Amministratore: Login | ⏳ Da fare |
-| Amministratore: Inserimento di un libro | ⏳ Da fare |
+| Amministratore: Inserimento di un libro | ✅ Completato |
 | Amministratore: Modifica di un libro | ⏳ Da fare |
 | Amministratore: Rimozione di un libro | ⏳ Da fare |
 | Configurazione Continuos Integration | ✅ Completato |
