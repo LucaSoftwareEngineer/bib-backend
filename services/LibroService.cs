@@ -37,5 +37,21 @@ namespace services
                 LibroId = libro.LibroId
             };
         }
+
+        public Task<List<LibroResponse>> GetAllLibro()
+        {
+            var libri = _appDbContext.Libri.Select(l => new LibroResponse
+            {
+                LibroId = l.LibroId,
+                Titolo = l.Titolo,
+                Autore = l.Autore,
+                Genere = l.Genere,
+                DataPubblicazione = l.DataPubblicazione,
+                ISBN = l.ISBN,
+                Disponibile = l.Noleggi.FirstOrDefault() == null ? true : false
+            }).ToList();
+
+            return Task.FromResult(libri);
+        }
     }
 }

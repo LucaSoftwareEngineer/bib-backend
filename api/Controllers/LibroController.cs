@@ -34,5 +34,19 @@ namespace api.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("get/all")]
+        public async Task<ActionResult<List<LibroResponse>>> GetAllLibro()
+        {
+            try
+            {
+                var response = await _libroService.GetAllLibro();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }
