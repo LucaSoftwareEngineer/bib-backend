@@ -12,5 +12,5 @@
 | Amministratore: Login | ⏳ Da fare |
 | Amministratore: Inserimento di un libro | ✅ Completato |
 | Amministratore: Modifica di un libro | ✅ Completato |
-| Amministratore: Rimozione di un libro | ⏳ Da fare |
+| Amministratore: Rimozione di un libro | ✅ Completato |
 | Configurazione Continuos Integration | ✅ Completato |
