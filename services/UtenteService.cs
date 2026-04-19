@@ -45,9 +45,19 @@ namespace services
                 throw new Exception("Email o password errati");
             }
 
+            var noleggi = _appDbContext.Noleggi.Where(n => n.UtenteId == utente.UtenteId).ToList();
+
+            string ruolo = "UTENTE";
+
+            if (utente.IsAdmin) ruolo = "ADMIN";
+
             return new LoginResponse
             {
-                token = _tokenService.GenerateToken(utente, jwtKey)
+                token = _tokenService.GenerateToken(utente, jwtKey),
+                Email = utente.Email,
+                UtenteId = utente.UtenteId,
+                Noleggi = noleggi.Count(),
+                Ruolo = ruolo
             };
 
         }
