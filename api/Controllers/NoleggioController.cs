@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using models.dto;
 using services;
 
@@ -16,6 +17,7 @@ namespace api.Controllers
             this._noleggioService = noleggioService;
         }
 
+        [Authorize]
         [HttpPost("add")]
         public async Task<ActionResult<AddNoleggioResponse>> AddNoleggio([FromBody] AddNoleggioRequest noleggio)
         {

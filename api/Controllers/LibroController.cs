@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using services.interfaces;
 using models.dto;
+using services.interfaces;
 using System;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace api.Controllers
             _libroService = libroService;
         }
 
+        [Authorize]
         [HttpPost("add")]
         public async Task<ActionResult<AddLibroResponse>> AddLibro([FromBody] AddLibroRequest request)
         {
@@ -35,6 +37,7 @@ namespace api.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("get/all")]
         public async Task<ActionResult<List<LibroResponse>>> GetAllLibro()
         {
@@ -49,6 +52,7 @@ namespace api.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("get")]
         public async Task<ActionResult<LibroResponse>> GetLibroByTitolo([FromQuery] string titolo)
         {
@@ -64,6 +68,7 @@ namespace api.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("edit")]
         public async Task<ActionResult<LibroResponse>> EditLibro([FromBody] EditLibroRequest request)
         {
@@ -81,6 +86,7 @@ namespace api.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult> DeleteLibro([FromRoute] int id)
         {
