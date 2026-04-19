@@ -31,7 +31,7 @@ namespace tests
             var mockTokenService = new Mock<ITokenService>();
 
             var passwordHash = BCrypt.Net.BCrypt.HashPassword("secret");
-            var utente = new Utente { Email = "test@test.it", Password = passwordHash, Nome = "Test", Cognome = "Test", luogoNascita = "Milano" };
+            var utente = new Utente { Email = "test@test.it", Password = passwordHash, Nome = "Test", Cognome = "Test", luogoNascita = "Milano", IsAdmin = false };
             dbContext.Utenti.Add(utente);
 
             await dbContext.SaveChangesAsync();

@@ -13,6 +13,7 @@ namespace models
         public string Password { get; set; }
         public DateTime dataNascita { get; set; }
         public String luogoNascita { get; set; }
+        public bool IsAdmin { get; set; } = false;
         public ICollection<Noleggio> Noleggi { get; set; } = new List<Noleggio>();
     }
 }

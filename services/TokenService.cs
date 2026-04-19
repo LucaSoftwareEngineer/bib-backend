@@ -19,6 +19,7 @@ namespace services
                 .AddClaim("Email", utente.Email)
                 .AddClaim("Nome", utente.Nome)
                 .AddClaim("Cognome", utente.Cognome)
+                .AddClaim("IsAdmin", utente.IsAdmin)
                 .Encode();
         }
     }
