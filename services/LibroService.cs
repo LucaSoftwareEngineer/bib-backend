@@ -89,7 +89,8 @@ namespace services
                 Genere = l.Genere,
                 DataPubblicazione = l.DataPubblicazione,
                 ISBN = l.ISBN,
-                Disponibile = l.Noleggi.FirstOrDefault() == null ? true : false
+                Disponibile = l.Noleggi.FirstOrDefault() == null ? true : false,
+                IdUtenteNoleggio = l.Noleggi.FirstOrDefault() != null ? l.Noleggi.FirstOrDefault().UtenteId : 0
             }).ToList();
 
             return Task.FromResult(libri);

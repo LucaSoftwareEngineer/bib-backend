@@ -13,5 +13,6 @@ namespace models.dto
         public DateTime DataPubblicazione { get; set; }
         public string ISBN { get; set; }
         public bool Disponibile { get; set; }
+        public int IdUtenteNoleggio { get; set; } = 0;
     }
 }
