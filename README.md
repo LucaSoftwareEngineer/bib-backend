@@ -9,7 +9,7 @@
 | Utente: Login | ✅ Completato |
 | Utente: Ricerca di un libro | ✅ Completato |
 | Utente: Noleggio di un libro | ✅ Completato |
-| Amministratore: Login | ⏳ Da fare |
+| Amministratore: Login | ✅ Completato |
 | Amministratore: Inserimento di un libro | ✅ Completato |
 | Amministratore: Modifica di un libro | ✅ Completato |
 | Amministratore: Rimozione di un libro | ✅ Completato |
